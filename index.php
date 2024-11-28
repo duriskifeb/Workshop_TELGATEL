@@ -45,7 +45,16 @@ if (isset($_POST['status'])) {
             <div class="bg-white border-green-500 w-[250px] h-[300px] m-4 flex flex-col space-y-[100px] p-4 items-center shadow-md">
                 <h1 class="text-xl font-semibold "><?= $tugas['nama'] ?></h1>
                 <div class="items-center flex flex-col">
-                    <p class=""></p>
+                    <p>Deadline : <?= $tugas['deadline'] ?></p>
+                    <p class="font-semibold">
+                        <?php 
+                        //date diff
+                        $deadline = date('d-m-Y',strtotime($tugas['deadline']));
+                        $now = date('d-m-Y');
+                        $diff = date_diff(date_create($deadline),  date_create($now));
+
+                        echo $deadline < $now ? "<p class="text-red-600"> Sisa </p>
+                    </p>
                 </div>
             </div> 
     </div>
