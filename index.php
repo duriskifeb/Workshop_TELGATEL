@@ -53,8 +53,9 @@ if (isset($_POST['status'])) {
                         $now = date('d-m-Y');
                         $diff = date_diff(date_create($deadline),  date_create($now));
 
-                        echo $deadline < $now ? "<p class="text-red-600"> Sisa </p>
+                        echo $deadline < $now ? "<p class='text-red-600'>Lewat " . $diff->days . " Hari</p> " : "<p class='text-blue-600'>Sisa " . $diff->days . " Hari </p> "; ?>
                     </p>
+                    <p class="font-semibold"><?= $tugas['status'] ?></p>
                 </div>
             </div> 
     </div>
